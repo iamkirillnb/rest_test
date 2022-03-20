@@ -1,0 +1,12 @@
+POST http://127.0.0.1:8080
+content-type: application/json
+
+{
+  "name": "kirill3",
+  "email": "kirill@yandex.ru",
+  "question": "my question is..."
+}
+###
+
+GET http://127.0.0.1:8080
+content-type: application/json

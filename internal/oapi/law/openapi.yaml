@@ -1,0 +1,57 @@
+openapi: 3.0.3
+info:
+  title: Law_Site
+  description: Law_Site
+  version: 1.0.0
+servers:
+  - url: 'http://127.0.0.1:8080'
+tags:
+  - name: form Sender
+paths:
+  /questions:
+    get:
+      tags:
+        - form Sender
+      summary: Получить все заявки
+      operationId: GetFormData
+      responses:
+        '200':
+          description: данные из формы
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListForms'
+    post:
+      tags:
+        - form Sender
+      summary: Данные формы
+      operationId: PostFormData
+      requestBody:
+        description: данные из формы
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Form'
+      responses:
+        '200':
+          description: данные успешно загружены. (id) записи
+          content:
+            application/json:
+              schema:
+                type: integer
+
+components:
+  schemas:
+    ListForms:
+      type: array
+      items:
+        $ref: '#/components/schemas/Form'
+    Form:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        text:
+          type: string
